@@ -502,7 +502,7 @@ const router = createBrowserRouter([
             },
         ]
     }
-]);
+], {basename: "/AdminDashboard"});
 
 function DashboardContent() {
     const location = useLocation()
