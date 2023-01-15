@@ -5,6 +5,7 @@ import Select from '@mui/material/Select';
 import {DashboardItemTitle} from "../DashboardItemTitle";
 import React from "react";
 import {useSnackbar} from "notistack";
+import ItemContainer from "../ItemContainer";
 
 
 function ScheduleAction() {
@@ -12,7 +13,7 @@ function ScheduleAction() {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     function showSnackbar() {
-        enqueueSnackbar("UwU", {variant: "success"})
+        enqueueSnackbar("Action scheduled!", {variant: "success"})
     }
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -20,8 +21,7 @@ function ScheduleAction() {
     };
 
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Schedule action</DashboardItemTitle>
+        <ItemContainer title="Schedule action">
             <Stack spacing={1}>
                 <Typography>time in seconds:</Typography>
                 <TextField/>
@@ -42,7 +42,7 @@ function ScheduleAction() {
                 </Select>
                 <Button variant={"contained"} onClick={showSnackbar}>submit</Button>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -50,18 +50,17 @@ function ScheduleBackup() {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     function showSnackbar() {
-        enqueueSnackbar("UwU", {variant: "success"})
+        enqueueSnackbar("Backup scheduled!", {variant: "success"})
     }
 
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Scheduled backup</DashboardItemTitle>
+        <ItemContainer title="Scheduled backup">
             <Stack spacing={1}>
                 <Typography>time in seconds:</Typography>
                 <TextField/>
                 <Button variant={"contained"} onClick={showSnackbar}>submit</Button>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -75,13 +74,12 @@ function ConnectionBlocking() {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     function showSnackbar() {
-        enqueueSnackbar("UwU", {variant: "success"})
+        enqueueSnackbar("Whitelist set!", {variant: "success"})
     }
 
     return (
-        <Paper sx={{padding: 1}}>
+        <ItemContainer title="Whitelist">
             <Stack spacing={1} justifyContent={"space-between"}>
-                <DashboardItemTitle>Connection FireWall</DashboardItemTitle>
                 <Typography>type:</Typography>
                 <Select
                     labelId="demo-simple-select-label"
@@ -97,7 +95,7 @@ function ConnectionBlocking() {
                 </Select>
                 <Button variant={"contained"} onClick={showSnackbar}>submit</Button>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -105,20 +103,23 @@ function ManageProcess() {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     function restart() {
-        enqueueSnackbar("successfully restarted", {variant: "success"})
+        enqueueSnackbar("server restarted!", {variant: "success"})
     }
     function shutdown() {
-        enqueueSnackbar("successfully shut down", {variant: "success"})
+        enqueueSnackbar("server shutdowned!", {variant: "success"})
+    }
+    function start(){
+        enqueueSnackbar("server started!", {variant: "success"})
     }
 
     return (
-        <Paper sx={{padding: 1}}>
+        <ItemContainer title="Manage process">
             <Stack spacing={1}>
-                <DashboardItemTitle>Manage process</DashboardItemTitle>
-                <Button onClick={restart} variant={"contained"} color={"error"}>Restart</Button>
+                <Button onClick={restart} variant={"contained"} color={"secondary"}>Restart</Button>
                 <Button onClick={shutdown} variant={"contained"} color={"error"}>Shut down</Button>
+                <Button onClick={start} variant={"contained"} color={"success"}>Start</Button>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 

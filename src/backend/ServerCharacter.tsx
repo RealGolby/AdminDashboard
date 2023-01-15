@@ -6,11 +6,11 @@ import {Link, useParams} from "react-router-dom";
 import Select from "@mui/material/Select";
 import {useState} from "react";
 import {useSnackbar} from "notistack";
+import ItemContainer from "../ItemContainer";
 
 function CharacterStatistics() {
     //     {name: "FASABI", id: 3, susAmount: 7, playTime: 13.7, kills: 7, deaths: 1}
-    return <Paper sx={{padding: 1}}>
-        <DashboardItemTitle>Character Statistics</DashboardItemTitle>
+    return <ItemContainer title="Character Statistics">
         <Stack direction={"row"} spacing={2}>
             <Stack>
                 <Typography variant={"caption"}>Name:</Typography>
@@ -41,12 +41,11 @@ function CharacterStatistics() {
                 <Typography variant={"h5"}>7</Typography>
             </Stack>
         </Stack>
-    </Paper>
+    </ItemContainer>
 }
 
 function BasicServerInfo() {
-    return <Paper sx={{padding: 1}}>
-        <DashboardItemTitle>Server Info</DashboardItemTitle>
+    return <ItemContainer title="Server Info">
         <Stack direction={"row"} spacing={2}>
             <Stack>
                 <Typography variant={"caption"}>Name:</Typography>
@@ -77,13 +76,12 @@ function BasicServerInfo() {
                 <Typography variant={"h5"}>7</Typography>
             </Stack>
         </Stack>
-    </Paper>
+    </ItemContainer>
 }
 
 export function SuspensionHistory() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Suspensions</DashboardItemTitle>
+        <ItemContainer title="Suspensions">
             <List style={{height: "400px",overflow: 'scroll'}} sx={{padding: 1}}>
                 <Typography>21.6.2023 - Player player1 id:1 banned by "Admin"<br/>duration: 1 week<br/>reson: "cheating"</Typography>
                 <Typography>21.6.2023 - Player player1 id:1 banned by "Admin"<br/>duration: 1 week<br/>reson: "cheating"</Typography>
@@ -93,7 +91,7 @@ export function SuspensionHistory() {
                 <Typography>21.6.2023 - Player player1 id:1 banned by "Admin"<br/>duration: 1 week<br/>reson: "cheating"</Typography>
                 <Typography>21.6.2023 - Player player1 id:1 muted by "Admin"<br/>duration: 1 week<br/>reson: "cheating"</Typography>
             </List>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -107,8 +105,7 @@ export function TakeAction() {
     }
 
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Take Action</DashboardItemTitle>
+        <ItemContainer title="Take Action">
 
             <Stack spacing={1}>             <Typography>action:</Typography>
                 <Select
@@ -136,7 +133,7 @@ export function TakeAction() {
                 <TextField/>
                 <Button variant={"contained"} onClick={showSnackbar}>submit</Button>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -144,8 +141,7 @@ export function ServerInfo() {
     let { serverID, characterID } = useParams()
     //     {name: "amethyst", id: 3, region: "EU", type: "pvp", onlinePlayers: 84, maxPlayers: 100, avgServerLoad: 60}
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Server Information</DashboardItemTitle>
+        <ItemContainer title="Server Information">
             <Stack direction={"row"} spacing={2}>
                 <Stack>
                     <Typography variant={"caption"}>name:</Typography>
@@ -176,7 +172,7 @@ export function ServerInfo() {
                     <Link to={"/backend/servers/"+serverID}>View</Link>
                 </Stack>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 

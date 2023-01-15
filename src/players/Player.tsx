@@ -4,6 +4,7 @@ import {DashboardItemTitle} from "../DashboardItemTitle";
 import * as React from "react";
 import {useParams} from "react-router-dom";
 import {SuspensionHistory, TakeAction} from "../backend/ServerCharacter";
+import ItemContainer from "../ItemContainer";
 
 /*
 platforma
@@ -16,12 +17,11 @@ function PlayerInfo() {
     let { playerId } = useParams()
     //     {name: "quartz", id: 1, isBanned: false, isAdmin: false, joinDate: "21.2.2023", platform: "Steam", isOnline: false},
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Basic Information</DashboardItemTitle>
+        <ItemContainer title="Basic Information">
             <Stack direction={"row"} spacing={2}>
                 <Stack>
                     <Typography variant={"caption"}>name:</Typography>
-                    <Typography variant={"h5"}>BOBUX Man</Typography>
+                    <Typography variant={"h5"}>SteamUser420</Typography>
                 </Stack>
                 <Stack>
                     <Typography variant={"caption"}>id:</Typography>
@@ -48,7 +48,7 @@ function PlayerInfo() {
                     <Typography variant={"h5"}>Now</Typography>
                 </Stack>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 

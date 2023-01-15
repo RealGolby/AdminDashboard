@@ -8,12 +8,12 @@ import * as React from "react";
 import {Circle} from "@mui/icons-material";
 import {green} from "@mui/material/colors";
 import Divider from "@mui/material/Divider";
+import ItemContainer from "../ItemContainer";
 
 function ServerInfo() {
     //     {name: "amethyst", id: 3, region: "EU", type: "pvp", onlinePlayers: 84, maxPlayers: 100, avgServerLoad: 60}
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Basic Information</DashboardItemTitle>
+        <ItemContainer title="Basic Information">
             <Stack direction={"row"} spacing={2}>
                 <Stack>
                     <Typography variant={"caption"}>name:</Typography>
@@ -40,13 +40,12 @@ function ServerInfo() {
                     <Typography variant={"h5"}>60 days</Typography>
                 </Stack>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
 function ServerStatistics() {
-    return <Paper sx={{padding: 1}}>
-        <DashboardItemTitle>Server Statistics</DashboardItemTitle>
+    return <ItemContainer title="Server Statistics">
         <Stack direction={"row"} spacing={2}>
             <Stack>
                 <Typography variant={"caption"}>cpu:</Typography>
@@ -65,18 +64,17 @@ function ServerStatistics() {
                 <Typography variant={"h5"}>20Mbps</Typography>
             </Stack>
         </Stack>
-    </Paper>
+    </ItemContainer>
 }
 
 function ServerState() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Server State</DashboardItemTitle>
+        <ItemContainer title="Server State">
             <Stack direction={"row"}>
                 <Circle color={"success"}/>
                 <Typography variant={"h4"} sx={{padding: 1}}>Online</Typography>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -126,8 +124,7 @@ const onlinePlayersWeekly = [
 ]
 
 function WeeklyStatistics() {
-    return <Paper sx={{padding: 1}}>
-        <DashboardItemTitle>Server Load</DashboardItemTitle>
+    return <ItemContainer title="Server Load">
         <LineChart
             width={500}
             height={300}
@@ -149,7 +146,7 @@ function WeeklyStatistics() {
             <Line type="monotone" dataKey="net" stroke="#8884d8" activeDot={{ r: 8 }} />
             <Line type="monotone" dataKey="disk" stroke="#8884d8" activeDot={{ r: 8 }} />
         </LineChart>
-    </Paper>
+    </ItemContainer>
 }
 
 export default function Server() {

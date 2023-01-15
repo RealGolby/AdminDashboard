@@ -28,6 +28,7 @@ import PlayerList from "./players/PlayerList";
 import Player from "./players/Player";
 import PurchasesList from "./purchases/PurchasesList";
 import {SnackbarProvider} from "notistack";
+import ItemContainer from "./ItemContainer";
 
 import StorageIcon from '@mui/icons-material/Storage';
 import PeopleIcon from '@mui/icons-material/People';
@@ -253,34 +254,31 @@ const onlinePlayersWeekly = [
 
 function OnlineServers() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Online Servers: 32</DashboardItemTitle>
+        <ItemContainer title='Online Servers: 32'>
             <Typography>Total Servers: 42</Typography>
-        </Paper>
+        </ItemContainer>
     )
 }
 
 function OnlinePlayers() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Online Players: 4171</DashboardItemTitle>
+        <ItemContainer title='Online Players: 4171'>
             <Stack direction={"row"} spacing={4} justifyContent={"space-evenly" } divider={<Divider orientation="vertical" flexItem />}>
                 <Typography>Total Players: 9487</Typography>
                 <Typography>Avg Players: 4026</Typography>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
 function PurchasesToday() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Daily purchases: 532</DashboardItemTitle>
+        <ItemContainer title='Daily purchases: 532'>
             <Stack direction={"row"} spacing={4} justifyContent={"space-evenly" } divider={<Divider orientation="vertical" flexItem />}>
                 <Typography>Total purchases: 2684</Typography>
                 <Typography>estimated earning: 420.69 $</Typography>
             </Stack>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -288,8 +286,7 @@ function PurchasesToday() {
 // each line representing region
 export function WeeklyPlayersChart() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Online Players</DashboardItemTitle>
+        <ItemContainer title='Online Players'>
             <LineChart
                 width={500}
                 height={300}
@@ -308,7 +305,7 @@ export function WeeklyPlayersChart() {
                 <Legend />
                 <Line type="monotone" dataKey="online" stroke="#8884d8" activeDot={{ r: 8 }} />
             </LineChart>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -316,15 +313,14 @@ export function WeeklyPlayersChart() {
 //
 function ImportantNotifications() {
     return (
-        <Paper sx={{padding: 1}}>
-            <DashboardItemTitle>Important Notifications</DashboardItemTitle>
+        <ItemContainer title='Important Notifications'>
             <List>
                 <Card>
                     <ListItemText>Player <a>FASABI</a> killed 256 players in a minute 25m ago</ListItemText>
                     <ListItemText>Server <a>snowflake-EU-100-duo</a> crashed unexpectedly yesterday</ListItemText>
                 </Card>
             </List>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -332,8 +328,7 @@ function ImportantNotifications() {
 // each line representing store
 function WeeklyPurchasesChart() {
     return (
-        <Paper sx={{padding: 1}}>
-            <Typography fontSize={42}>Game purchases</Typography>
+        <ItemContainer title='Game purchases'>
             <LineChart
                 width={500}
                 height={300}
@@ -354,7 +349,7 @@ function WeeklyPurchasesChart() {
                 <Line type="monotone" dataKey="epicStore" stroke="#82ca9d" />
                 <Line type="monotone" dataKey="GOG" stroke="#82cad9" />
             </LineChart>
-        </Paper>
+        </ItemContainer>
     )
 }
 
@@ -521,7 +516,7 @@ function DashboardContent() {
                                 px: [1],
                             }}
                         >
-                           <Typography width={"100%"}>Admin Panel</Typography> 
+                           <Typography width={"100%"}>Admin Panel v0.1</Typography> 
                         </Toolbar>
                         <Divider/>
                         <DrawSidebar offset={0} items={drawerItems} route={location.pathname}/>
